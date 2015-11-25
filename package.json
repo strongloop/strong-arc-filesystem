@@ -1,0 +1,42 @@
+{
+  "name": "strong-arc-filesystem",
+  "description": "Arc backend component to browse local filesystem",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "tap --bail --coverage --coverage-report=cobertura --timeout=200 test/test-*.*",
+    "posttest": "nyc report --reporter=lcov && nyc report"
+  },
+  "dependencies": {
+    "async": "^1.5.0",
+    "compression": "^1.x",
+    "cors": "^2.x",
+    "errorhandler": "^1.x",
+    "loopback": "^2.14.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-datasource-juggler": "^2.19.0",
+    "serve-favicon": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.x",
+    "eslint-config-strongloop": "^1.x",
+    "jshint": "^2.5.6",
+    "loopback-explorer": "^1.1.0",
+    "nyc": "^3.x",
+    "supertest": "^1.1.0",
+    "tap": "^2.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strongloop/strong-arc-filesystem.git"
+  },
+  "bugs": "https://github.com/strongloop/strong-arc-filesystem/issues",
+  "keywords": [
+    "arc",
+    "StrongLoop"
+  ],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "engineering@strongloop.com",
+  "homepage": "https://github.com/strongloop/strong-arc-filesystem"
+}
