@@ -7,7 +7,7 @@ test('Get directory listing', function(t) {
   var app = request(server);
   var base = path.join(__dirname, 'sampledir');
   app
-    .get('/api/fileSystem/readdir')
+    .get('/readdir')
     .query({path: base})
     .expect(200, function(err, res) {
       t.ifError(err);
