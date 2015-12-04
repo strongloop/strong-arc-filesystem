@@ -2,5 +2,8 @@
   "name": "FileSystem",
   "plural": "FileSystem",
   "base": "Model",
-  "description": "Local File system"
+  "description": "Local File system",
+  "http": {
+    "path": "/"
+  }
 }
