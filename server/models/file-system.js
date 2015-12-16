@@ -23,8 +23,22 @@ module.exports = function(FileSystem) {
   FileSystem.readdir = function(p, callback) {
     fs.readdir(p, function(err, files) {
       if (err) return callback(err);
+
+      var cwd = path.resolve(p);
+      var parents = [];
+
+      var parent = cwd;
+      do {
+        parent = path.dirname(parent);
+        parents.push({name: path.basename(parent), path: path.resolve(parent)});
+      } while (parent !== path.dirname(parent));
+
       async.map(files, getFileDetails, function(err, files) {
-        callback(err, {cwd: p, files: files});
+        callback(err, {
+          cwd: {name: path.basename(cwd), path: cwd},
+          parents: parents,
+          files: files,
+        });
       });
     });
 

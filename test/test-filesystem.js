@@ -11,8 +11,13 @@ test('Get directory listing', function(t) {
     .query({path: base})
     .expect(200, function(err, res) {
       t.ifError(err);
+      t.ok(res.body.parents);
+      delete res.body.parents;
       t.deepEqual(res.body, {
-        cwd: base,
+        cwd: {
+          name: 'sampledir',
+          path: base,
+        },
         files: [{
           name: 'dir',
           type: 'directory',
