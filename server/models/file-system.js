@@ -30,7 +30,10 @@ module.exports = function(FileSystem) {
       var parent = cwd;
       do {
         parent = path.dirname(parent);
-        parents.push({name: path.basename(parent), path: path.resolve(parent)});
+        parents.unshift({
+          name: path.basename(parent),
+          path: path.resolve(parent),
+        });
       } while (parent !== path.dirname(parent));
 
       async.map(files, getFileDetails, function(err, files) {
