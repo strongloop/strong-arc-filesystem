@@ -21,6 +21,7 @@ module.exports = function(FileSystem) {
   );
 
   FileSystem.readdir = function(p, callback) {
+		p = path.resolve(p);
     fs.readdir(p, function(err, files) {
       if (err) return callback(err);
 
