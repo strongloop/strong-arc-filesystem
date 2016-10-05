@@ -1,7 +1,7 @@
 {
   "name": "strong-arc-filesystem",
   "description": "Arc backend component to browse local filesystem",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "server/server.js",
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
