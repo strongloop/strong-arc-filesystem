@@ -54,11 +54,16 @@ module.exports = function(FileSystem) {
     function getFileDetails(fileName, callback) {
       var filePath = path.join(p, fileName);
       fs.lstat(filePath, function(err, stat) {
-        if (err) return callback(err);
         var type;
-        if (stat.isSymbolicLink()) type = 'symlink';
-        if (stat.isDirectory()) type = 'directory';
-        if (stat.isFile()) type = 'file';
+
+        // bypass lstat errors for files on windows (ie: pagefile.sys)
+        if (err) {
+          type = 'unknown';
+        } else if (stat) {
+          if (stat.isSymbolicLink()) type = 'symlink';
+          if (stat.isDirectory()) type = 'directory';
+          if (stat.isFile()) type = 'file';
+        }
 
         var fileData = {
           name: path.basename(filePath),
@@ -66,12 +71,17 @@ module.exports = function(FileSystem) {
           path: filePath,
         };
 
+        if (type === 'unknown') {
+          return callback(null, fileData);
+        }
+
         if (stat.isDirectory()) {
           return checkLbApp(filePath, function(err, isLbApp) {
             fileData.isLoopback = isLbApp;
             callback(err, fileData);
           });
         }
+
         callback(err, fileData);
       });
     }
