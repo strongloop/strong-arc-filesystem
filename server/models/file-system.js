@@ -58,6 +58,7 @@ module.exports = function(FileSystem) {
 
         // bypass lstat errors for files on windows (ie: pagefile.sys)
         if (err) {
+          console.warn(err);
           type = 'unknown';
         } else if (stat) {
           if (stat.isSymbolicLink()) type = 'symlink';
