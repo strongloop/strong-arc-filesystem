@@ -1,4 +1,12 @@
-2016-10-05, Version 1.0.3
+2016-12-02, Version 1.0.4
+=========================
+
+ * warn on error (Anthony Ettinger)
+
+ * fix windows error on lstat (Anthony Ettinger)
+
+
+2016-10-04, Version 1.0.3
 =========================
 
  * deps: upgrade tap to avoid dead request (Ryan Graham)
