@@ -27,13 +27,28 @@ module.exports = function(FileSystem) {
 
   FileSystem.readdir = function(p, callback) {
     p = path.resolve(p);
-    fs.readdir(p, function(err, files) {
-      if (err) return callback(err);
 
+    fs.readdir(p, function(err, files) {
       var cwd = path.resolve(p);
       var parents = [];
-
       var parent = cwd;
+
+      if (err) {
+        // skip paths with permission errors
+        if (err.code === 'EPERM') {
+          return callback(null, {
+              cwd: {name: path.basename(cwd), path: cwd},
+              parents: [{
+                  name: path.basename(parent),
+                  path: parent,
+              }],
+              files: [],
+          });
+        }
+
+        return callback(err);
+      }
+
       do {
         parent = path.dirname(parent);
         parents.unshift({
