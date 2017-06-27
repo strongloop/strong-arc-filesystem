@@ -35,7 +35,7 @@
     "arc",
     "StrongLoop"
   ],
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "author": "engineering@strongloop.com",
   "homepage": "https://github.com/strongloop/strong-arc-filesystem"
 }
