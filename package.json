@@ -13,9 +13,9 @@
     "compression": "^1.x",
     "cors": "^2.x",
     "errorhandler": "^1.x",
-    "loopback": "^2.14.0",
-    "loopback-boot": "^2.6.5",
-    "loopback-datasource-juggler": "^2.19.0",
+    "loopback": "^3.20.0",
+    "loopback-boot": "^3.1.1",
+    "loopback-datasource-juggler": "^3.22.0",
     "serve-favicon": "^2.0.1"
   },
   "devDependencies": {
