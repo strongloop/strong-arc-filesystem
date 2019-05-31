@@ -12,7 +12,6 @@ module.exports = function(FileSystem) {
     'readdir',
     {
       http: {verb: 'get'},
-      isStatic: true,
       accepts: [
         {
           arg: 'path',
