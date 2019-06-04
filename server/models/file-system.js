@@ -1,3 +1,4 @@
+'use strict';
 // Copyright IBM Corp. 2015,2016. All Rights Reserved.
 // Node module: strong-arc-filesystem
 // US Government Users Restricted Rights - Use, duplication or disclosure
@@ -12,7 +13,6 @@ module.exports = function(FileSystem) {
     'readdir',
     {
       http: {verb: 'get'},
-      isStatic: true,
       accepts: [
         {
           arg: 'path',
