@@ -1,3 +1,11 @@
+2019-06-04, Version 3.0.0
+=========================
+
+ * chore: upgrade dependencies (Biniam Admikew)
+
+ * Upgrade application from LB2 to LB3 (JISOO LEE)
+
+
 2017-06-27, Version 1.0.5
 =========================
 
